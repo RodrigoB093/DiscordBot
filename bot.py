@@ -1,5 +1,5 @@
 import discord
-from bot_logic import gen_pass
+from bot_logic import *
 import random
 
 # La variable intents almacena los privilegios del bot
@@ -23,7 +23,11 @@ async def on_message(message):
         await message.channel.send("\U0001f642")
     elif message.content.startswith('$genpass'):
         await message.channel.send(gen_pass(random.randint(4,20)))
+    elif message.content.startswith('$smile'):
+        await message.channel.send(gen_emodji())
+    elif message.content.startswith('$moneda'):
+        await message.channel.send(flip_coin())
     else:
         await message.channel.send(message.content)
 
-client.run("********")
+client.run("TOKEN")
